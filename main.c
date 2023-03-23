@@ -63,9 +63,9 @@ int main() {
 
 
 int **allocate(int rows, int cols) {
-    int **matrix = (int **)malloc(rows * sizeof(int *));
+    int **matrix = (int **) malloc(rows * sizeof(int *));
     for (int i = 0; i < rows; i++) {
-        matrix[i] = (int *)malloc(cols * sizeof(int));
+        matrix[i] = (int *) malloc(cols * sizeof(int));
     }
     return matrix;
 }
@@ -128,9 +128,9 @@ void swapMinMax(int **matrix, int rows, int cols) {
 }
 
 void setEvenToZero(int **matrix, int rows, int cols) {
-    for(int i = 0; i < rows; i++) {
-        for(int j = 0; j < cols; j++) {
-            if(matrix[i][j] % 2 == 0) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if (matrix[i][j] % 2 == 0) {
                 matrix[i][j] = 0;
             }
         }
@@ -141,12 +141,12 @@ int maxColumnSum(int **matrix, int rows, int cols) {
     int maxSum = 0;
     int maxColumn = 0;
 
-    for(int j = 0; j < cols; j++) {
+    for (int j = 0; j < cols; j++) {
         int sum = 0;
-        for(int i = 0; i < rows; i++) {
+        for (int i = 0; i < rows; i++) {
             sum += matrix[i][j];
         }
-        if(sum > maxSum) {
+        if (sum > maxSum) {
             maxSum = sum;
             maxColumn = j;
         }
