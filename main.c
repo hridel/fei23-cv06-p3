@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int **allocate(int rows, int cols);
 void generateValues(int **matrix, int rows, int cols);
@@ -70,6 +71,7 @@ int **allocate(int rows, int cols) {
 }
 
 void generateValues(int **matrix, int rows, int cols) {
+    srand(time(NULL));
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             matrix[i][j] = rand() % 100;  // generate random integer between 0-99
@@ -85,13 +87,14 @@ void deallocate(int **matrix, int rows) {
 }
 
 void printMatrix(int **matrix, int rows, int cols) {
-    printf("\n--- VYPIS MATICE ---\n");
+    printf("\n---------------------\n");
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             printf("%3d ", matrix[i][j]);
         }
         printf("\n");
     }
+    printf("---------------------\n");
 }
 
 int findValue(int **matrix, int rows, int cols, int value) {
